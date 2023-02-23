@@ -1,7 +1,8 @@
 import React, { useState,useEffect,useRef } from 'react'
 import {Container,Row,Col,Card,Button} from 'react-bootstrap';
-import {fetchArticles,fetchAllSources} from '../api/newsarticles.api'
-let temp =[]
+import {fetchArticles,fetchAllSources} from '../api/newsarticles.api';
+import noimg from '../images/noimg.png'
+let temp=[]
 function Newsfeed({source,searchArticle,page,articles, setPage,setArticles,setSearch}) {
     useEffect(()=>{
         (async () => {
@@ -18,24 +19,22 @@ function Newsfeed({source,searchArticle,page,articles, setPage,setArticles,setSe
     },[source,page])
    
   return (
-    <>  {console.log("articles",articles)}
-         <Container >
-            
-            <Row  >
-              
+    <>  
+         <Container className='news-feeds-inner-container'>   
+            <Row  className="news-feeds">
                 {articles !== undefined && articles.length >0 ?
                 (
                     articles.map((item)=>{
                         return(
                             <>
-                            <Col md={4} className='mb-2 '>
-                                <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" width={150} height={100} src={item.urlToImage !== null ? item.urlToImage : 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fempty&psig=AOvVaw30OQ4hOLVqMqVTCy_fodQV&ust=1677179592637000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCODkmYDrqf0CFQAAAAAdAAAAABAE'} />
-                                    <Card.Body>
+                            <Col md={4} className='mb-2 card-conatiner'>
+                                <Card className='card-inner-conatiner' >
+                                    <Card.Img className='card-img'variant="top" width={150} height={150} src={item.urlToImage !== null ? item.urlToImage : noimg} />
+                                    <Card.Body className='card-body'>
                                         <Card.Title className='title'> {item.title}</Card.Title>
                                         <Card.Text className="description">{item.description}</Card.Text>
-                                        <Button variant="primary" href={item.url}>Read..</Button>
                                     </Card.Body>
+                                    <Button className='card-btn' style={{backgroundColor:'black'}} href={item.url}>Read..</Button>
                                 </Card>
                             </Col>
                             </>

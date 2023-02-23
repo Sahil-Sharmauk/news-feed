@@ -22,17 +22,13 @@ export async function fetchArticles(data,page) {
       });
   }
   
-//   export async function getCurrentUser() {
-//     return apiClient
-//       .get('/users/current')
-//       .then(response => {
-//         if (response) {
-//           const { accessToken } = response.data;
-//           if (accessToken) {
-//             localStorage.setItem('accessToken', accessToken);
-//           }
-//           return response.data;
-//         }
-//         return Promise.reject();
-//       });
-//   }
+  export async function fetchTopHeadLines() {
+    return apiClient
+      .get('/news-articles/fetch-top-headlines',fetchTopHeadLines)
+      .then(response => {
+        if (response) {
+          return response.data;
+        }
+        return Promise.reject();
+      });
+  }

@@ -1,3 +1,10 @@
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid slategrey;
+}
 .logo-name {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
@@ -16,9 +23,43 @@
   height: 70px;
   background-color: #000000;
 }
-.title{
-  
-  margin:20px;
+/*News Feeds*/
+.news-feed-container{
+  background-color: #e3ebf3;
+  padding: 0px;
+  overflow-x: none;
+}
+.news-feed-container::-webkit-scrollbar {
+  width: 0.5em;
+}
+.news-feed-container::-webkit-scrollbar-thumb {
+  background-color: #e3ebf3;
+  /* outline: 1px solid slategrey; */
+}
+.news-feeds-inner-container{
+  padding:0px;
+  overflow-x: 'unset' 
+}
+.card-conatiner{
+  width:18rem;
+  height: 27rem;
+}
+
+.card-inner-conatiner{
+  width:18rem;
+  height: 27rem;  
+}
+.card-img{
+  width:18rem;
+  height: 10rem;
+}
+.card-body{
+  width:18rem;
+  height: 13em;
+}
+
+.title{ 
+  margin:10px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -34,6 +75,68 @@
   -webkit-box-orient: vertical;
  
 }
+.card-btn{
+  background-color: #000000;
+}
+/*Sidebar*/
+.sidebar-container{
+  background-color: #000000;
+  border-right: 1 px solid black;
+  direction: rtl;
+}
+.sidebar-container::-webkit-scrollbar {
+  width: 0.3em;
+  
+}
+.sidebar-container::-webkit-scrollbar-thumb {
+  background-color: slategrey;
+  outline: 1px solid black;
+}
 .sidebar{
   max-height: 45rem;
+}
+.sidebar-checkbox{
+  direction:ltr;
+  font-size: 12px;
+  color:aliceblue
+}
+
+/* Slideshow */
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 150px;
+  width:100%;
+  /* border-radius: 40px; */
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0px 7px 0px 0px;
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #6a0dad;
 }
