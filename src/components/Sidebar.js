@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import {Container,Row,Col,InputGroup,Form,Button} from 'react-bootstrap';
 
-function Sidebar({allSources,setSource,source,setSearchArticle,setPage}) {
+function Sidebar({allSources,setSource,source,setSearchArticle,setPage,setArticles,setSearch}) {
     const handleChange = (e)=>{
         console.log(e.target.value)
+        setSearch('')
         setSearchArticle(false)
+        setArticles([])
         setPage(1)
         setSource(e.target.value)
     }

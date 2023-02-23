@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import {Container,Row,Col,InputGroup,Form,Button} from 'react-bootstrap';
 import '../index.css'
-function Header({setSource,setSearchArticle}) {
-    const [search, setSearch] = useState('')
+function Header({setSource,setSearchArticle,setArticles,setSearch,search}) {
 
     const handleChangeSearch = (e)=>{
         if(e.target.value.length > 0){
@@ -11,10 +10,12 @@ function Header({setSource,setSearchArticle}) {
     }
     const handleSearch = () =>{
         if(search !== ''){
+            setArticles([])
             setSearchArticle(true)
             setSource(search)
         }else{
             setSource('')
+            setArticles([])
         }
     }
     return (
@@ -30,6 +31,7 @@ function Header({setSource,setSearchArticle}) {
                 required
                 type="text"
                 placeholder="Search"
+                value={search}
                 onChange={handleChangeSearch}
                 />
             </InputGroup>

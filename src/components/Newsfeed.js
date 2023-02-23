@@ -1,23 +1,25 @@
 import React, { useState,useEffect,useRef } from 'react'
 import {Container,Row,Col,Card,Button} from 'react-bootstrap';
-import useScrollPosition from './useScrollPosition'
 import {fetchArticles,fetchAllSources} from '../api/newsarticles.api'
-import {TailSpin} from 'react-loader-spinner'
-function Newsfeed({source,searchArticle,page, setPage}) {
-    const [articles, setArticles]= useState([])
+let temp =[]
+function Newsfeed({source,searchArticle,page,articles, setPage,setArticles,setSearch}) {
     useEffect(()=>{
         (async () => {
-
-            console.log('source::>>',source)
             let data={"source":source,'search':searchArticle,'page':page}
             let allNewsArticles = await fetchArticles(data)
-            setArticles(allNewsArticles.allArticles)
+            if(allNewsArticles.allArticles.length === 0){
+                setPage(1)
+                setSearch('')
+            }else{
+                temp = [...articles,...allNewsArticles.allArticles]
+                setArticles(temp)
+            }
         })(); 
     },[source,page])
    
   return (
     <>  {console.log("articles",articles)}
-         <Container id="#1">
+         <Container >
             
             <Row  >
               
