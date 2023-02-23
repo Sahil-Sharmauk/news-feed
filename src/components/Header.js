@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import {Container,Row,Col,InputGroup,Form,Button} from 'react-bootstrap';
 import '../index.css'
-function Header({setSource,setSearchArticle,setArticles,setSearch,search}) {
+function Header({setSource,setSearchArticle,setArticles,setSearch,search,setPage}) {
 
     const handleChangeSearch = (e)=>{
         if(e.target.value.length > 0){
+
             setSearch(e.target.value)
         }
     }
@@ -13,6 +14,7 @@ function Header({setSource,setSearchArticle,setArticles,setSearch,search}) {
             setArticles([])
             setSearchArticle(true)
             setSource(search)
+            setPage(1)
         }else{
             setSource('')
             setArticles([])
@@ -31,7 +33,7 @@ function Header({setSource,setSearchArticle,setArticles,setSearch,search}) {
                 required
                 type="text"
                 placeholder="Search"
-                value={search}
+        
                 onChange={handleChangeSearch}
                 />
             </InputGroup>
